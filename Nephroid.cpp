@@ -53,7 +53,7 @@ namespace lab1b {
 		return 24 * r; 
 	};
 
-	double Nephroid::curveradius(double t = 0) const { 
+	double Nephroid::curveradius(double t) const { 
 		return abs(3 * r * sin(t)); 
 	};
 
