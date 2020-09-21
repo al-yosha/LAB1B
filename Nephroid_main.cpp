@@ -10,13 +10,12 @@ int main() {
 	lab1b::Point p;
 	int fl1 = 1;
 	double r;
-	char* s = NULL;
+	std::string s;
 	
 	while (fl1) {
 		std::cout << "Nephroid's equation is: " << std::endl;
 		s = c.equation();
 		std::cout << s;
-		delete[] s;
 		std::cout << "area: " << c.area() << std::endl;
 		std::cout << "perimeter: " << c.length() << std::endl;
 		int fl2 = 1;
@@ -54,9 +53,10 @@ int main() {
 				continue;
 			}
 		}
-		else
+		else {
 			std::cout << "Incorrect input detected, the program will close";
 			fl1 = 0;
+		}
 	}
 	_CrtSetReportMode(_CRT_WARN, _CRTDBG_MODE_DEBUG);
 	_CrtDumpMemoryLeaks();

@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <string.h>
 #include "Nephroid.h"
+#include <string>
 
 namespace lab1b {
 	Nephroid& Nephroid::setR(double r0) {
@@ -61,38 +62,23 @@ namespace lab1b {
 		return 12 * 3.1415 * r * r; 
 	};
 
-	char* Nephroid::equation() const {
-		const char* s1 = "((x - )^2 + (y - )^2 - )^3 = *(x - )^2\n";
-		int l = strlen(s1) + 1;
-		char num[20];
-		sprintf_s(num, 20, "%.2f", p.x);
-		l += strlen(num);
-		sprintf_s(num, 20, "%.2f", p.x);
-		l += strlen(num);
-		sprintf_s(num, 20, "%.2f", p.y);
-		l += strlen(num);
-		sprintf_s(num, 20, "%.2f", 4 * r * r);
-		l += strlen(num);
-		sprintf_s(num, 20, "%.2f", 108 * r * r * r * r);
-		l += strlen(num);
-		char* s = new char[l];
+	std::string Nephroid::equation() const {
+		//const char* s1 = "((x - )^2 + (y - )^2 - )^3 = *(x - )^2\n";
+		std::string s1;
 		if (p.x == 0)
-			sprintf_s(s, l, "(x^2");
+			s1 += "(x^2";
 		else
-			sprintf_s(s, l, "((x - %.2f)^2", p.x);
-		int k = strlen(s);
+			s1 += "((x - " + std::to_string(p.x) + ")^2";
 		if (p.y == 0)
-			sprintf_s(s + k, l - k, " + y^2");
+			s1 += " + y^2";
 		else
-			sprintf_s(s + k, l - k, " + (y - %.2f)^2", p.y);
-		k = strlen(s);
-		sprintf_s(s + k, l - k, " - %.2f)^3 = %.2f*", 4 * r * r, 108 * r * r * r * r);
-		k = strlen(s);
+			s1 += " + (y - " + std::to_string(p.y) + ")^2";
+		s1 += " - " + std::to_string(4 * r * r) + ")^3 = " + std::to_string(108 * r * r * r * r) + "*";
 		if (p.x == 0)
-			sprintf_s(s + k, l - k, "x^2\n");
+			s1 += "x^2\n";
 		else
-			sprintf_s(s + k, l - k, "(x - %.2f)^2\n", p.x);
-		return s;
+			s1 += "(x - "+ std::to_string(p.x) + ")^2\n";
+		return s1;
 	}
 
 }

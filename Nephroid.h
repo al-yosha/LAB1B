@@ -30,7 +30,7 @@ namespace lab1b {
 		double curveradius(double t = 0) const; //Радиус кривизны
 		double area() const; //Площадь, ограниченная кривой
 		Point coordinates(double t = 0) const; //Координаты x и y в зависимости от параметра
-		char* equation() const;	//Вывод уравнения кривой
+		std::string equation() const;	//Вывод уравнения кривой
 	};
 	
 }
