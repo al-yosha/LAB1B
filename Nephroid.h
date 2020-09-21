@@ -20,15 +20,15 @@ namespace lab1b {
 		Nephroid(const Point& p0, double rad = 1);
 		Nephroid(double x0, double y0, double rad = 1);
 		//Cеттеры
-		Nephroid& setP(Point& p0) { p = p0; return *this; };
+		Nephroid& setP(Point& p0);
 		Nephroid& setR(double r0);
 		//Геттеры
-		Point getP() const{ return p; };
-		double getR() const{ return r; };
+		Point getP() const;
+		double getR() const;
 		//Другие методы
-		double length() const { return 24 * r; }; //Длина кривой
-		double curveradius(double t = 0) const { return abs(3 * r * sin(t)); }; //Радиус кривизны
-		double area() const { return 12 * 3.1415 * r * r; }; //Площадь, ограниченная кривой
+		double length() const; //Длина кривой
+		double curveradius(double t = 0) const; //Радиус кривизны
+		double area() const; //Площадь, ограниченная кривой
 		Point coordinates(double t = 0) const; //Координаты x и y в зависимости от параметра
 		char* equation() const;	//Вывод уравнения кривой
 	};

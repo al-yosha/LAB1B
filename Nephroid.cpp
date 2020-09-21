@@ -36,6 +36,30 @@ namespace lab1b {
 		return cords;
 	}
 
+	Nephroid& Nephroid::setP(Point& p0) { 
+		p = p0; 
+		return *this; 
+	};
+
+	Point Nephroid::getP() const { 
+		return p; 
+	};
+
+	double Nephroid::getR() const { 
+		return r; 
+	};
+
+	double Nephroid::length() const { 
+		return 24 * r; 
+	};
+
+	double Nephroid::curveradius(double t = 0) const { 
+		return abs(3 * r * sin(t)); 
+	};
+
+	double Nephroid::area() const { 
+		return 12 * 3.1415 * r * r; 
+	};
 
 	char* Nephroid::equation() const {
 		const char* s1 = "((x - )^2 + (y - )^2 - )^3 = *(x - )^2\n";
