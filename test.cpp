@@ -2,6 +2,7 @@
 #include "gtest/gtest.h"
 #include "..\LAB1B\Nephroid.h"
 #include "..\LAB1B\Nephroid.cpp"
+#include <sstream>
 
 TEST(NephroidConstructor, Constructor1) {
 	lab1b::Nephroid c1;
@@ -59,7 +60,9 @@ TEST(NephroidMethods, Parameters)
 	ASSERT_EQ(0, a1.coordinates().y);
 	ASSERT_NEAR(0, a1.coordinates(PI/2).x, err);
 	ASSERT_NEAR(4, a1.coordinates(PI/2).y, err);
-	ASSERT_STREQ("(x^2 + y^2 - 4.00)^3 = 108.00*x^2\n", a1.equation());
+	std::stringstream s;
+	s << "(x^2 + y^2 - 4.00)^3 = 108.00*x^2" << std::endl;
+	ASSERT_STREQ(s.str().c_str(), a1.equation().c_str());
 	lab1b::Nephroid a2(1, 3, 2);
 	ASSERT_NEAR(48, a2.length(), err);
 	ASSERT_EQ(0, a2.curveradius());
@@ -67,7 +70,9 @@ TEST(NephroidMethods, Parameters)
 	ASSERT_EQ(3, a2.coordinates().y);
 	ASSERT_NEAR(1, a2.coordinates(PI / 2).x, err);
 	ASSERT_NEAR(11, a2.coordinates(PI / 2).y, err);
-	ASSERT_STREQ("((x - 1.00)^2 + (y - 3.00)^2 - 16.00)^3 = 1728.00*(x - 1.00)^2\n", a2.equation());
+	s.str("");
+	s << "((x - 1.00)^2 + (y - 3.00)^2 - 16.00)^3 = 1728.00*(x - 1.00)^2" << std::endl;
+	ASSERT_STREQ(s.str().c_str(), a2.equation().c_str());
 }
 
 int main(int argc, char* argv[])
