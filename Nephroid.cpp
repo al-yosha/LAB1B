@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <string.h>
 #include "Nephroid.h"
-#include <string>
+#include <sstream>
 
 namespace lab1b {
 	Nephroid& Nephroid::setR(double r0) {
@@ -64,21 +64,21 @@ namespace lab1b {
 
 	std::string Nephroid::equation() const {
 		//const char* s1 = "((x - )^2 + (y - )^2 - )^3 = *(x - )^2\n";
-		std::string s1;
+		std::stringstream s1;
 		if (p.x == 0)
-			s1 += "(x^2";
+			s1 << "(x^2";
 		else
-			s1 += "((x - " + std::to_string(p.x) + ")^2";
+			s1 << "((x - " << p.x << ")^2";
 		if (p.y == 0)
-			s1 += " + y^2";
+			s1 << " + y^2";
 		else
-			s1 += " + (y - " + std::to_string(p.y) + ")^2";
-		s1 += " - " + std::to_string(4 * r * r) + ")^3 = " + std::to_string(108 * r * r * r * r) + "*";
+			s1 << " + (y - " << p.y << ")^2";
+		s1 << " - " << 4 * r * r << ")^3 = " << 108 * r * r * r * r << "*";
 		if (p.x == 0)
-			s1 += "x^2\n";
+			s1 << "x^2" << std::endl;
 		else
-			s1 += "(x - "+ std::to_string(p.x) + ")^2\n";
-		return s1;
+			s1 << "(x - " << p.x << ")^2" << std::endl;
+		return s1.str();
 	}
 
 }
