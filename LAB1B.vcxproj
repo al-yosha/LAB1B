@@ -140,7 +140,6 @@
   <ItemGroup>
     <ClCompile Include="Nephroid.cpp" />
     <ClCompile Include="Nephroid_main.cpp" />
-    <ClCompile Include="Test.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Nephroid.h" />
