@@ -13,6 +13,7 @@ int main() {
 	std::string s;
 	
 	while (fl1) {
+		std::cout << std::fixed << std::setprecision(2);
 		std::cout << "Nephroid's equation is: " << std::endl;
 		s = c.equation();
 		std::cout << s;

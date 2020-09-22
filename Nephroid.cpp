@@ -3,6 +3,7 @@
 #include <string.h>
 #include "Nephroid.h"
 #include <sstream>
+#include <iomanip>
 
 namespace lab1b {
 	Nephroid& Nephroid::setR(double r0) {
@@ -65,6 +66,7 @@ namespace lab1b {
 	std::string Nephroid::equation() const {
 		//const char* s1 = "((x - )^2 + (y - )^2 - )^3 = *(x - )^2\n";
 		std::stringstream s1;
+		s1 << std::fixed << std::setprecision(2);
 		if (p.x == 0)
 			s1 << "(x^2";
 		else
